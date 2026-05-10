@@ -1,0 +1,27 @@
+package persistencia;
+
+import java.util.HashMap;
+
+import dominio.Categoria;
+
+public class CategoriaDao {
+    private static HashMap<String, Categoria> categorias = new HashMap<String, Categoria>();
+
+    // creamos el constructor y creamos dos categorias
+    public CategoriaDao() {
+        if (categorias.isEmpty()) {
+            categorias.put("Concierto", new Categoria("Concierto", "La gente paga por ver a otra gente tocar en un escenario"));
+            categorias.put("Partido de futbol", new Categoria("Partido de futbol", "La gente paga por ver a otra gente dar patadas a un balón"));
+        }
+    }
+
+    // creamos un metodo para obtener la categoria
+    public Categoria obtenerCategoria(String nombre) {
+        return categorias.get(nombre);
+    }
+
+    // creamos un metodo para obtener todas las categorias que existan
+    public HashMap<String, Categoria> obtenerCategorias() {
+        return categorias;
+    }
+}
